@@ -1,103 +1,251 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>オンライン服薬指導</title>
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* リセット */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #333;
+      background: #f9f9f9;
+      -webkit-text-size-adjust: 100%;
+    }
+    .wrap {
+      width: 100%;
+      max-width: 480px; /* スマホ最大幅 */
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    header {
+      background-color: #00796b;
+      color: white;
+      padding: 20px 15px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+    }
+    section {
+      min-height: 100vh;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero {
+      background-color: #b2dfdb;
+    }
+    .badges {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .badge {
+      background: #e0f2f1;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-left: 5px solid #00796b;
+      border-radius: 4px;
+      font-weight: 600;
+      user-select: none;
+    }
+    .steps .card {
+      background-color: #e8f5e9;
+      border-radius: 10px;
+      padding: 25px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 50px;
+    }
+    .steps .card h3 {
+      margin-bottom: 18px;
+      color: #2e7d32;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .list .item {
+      display: flex;
+      align-items: center;
+      margin: 12px 0;
+      font-size: 1rem;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: #2e7d32;
+      border-radius: 50%;
+      margin-right: 14px;
+      flex-shrink: 0;
+    }
+    .muted {
+      color: #666;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+    footer {
+      background-color: #00796b;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    footer a {
+      color: #80cbc4;
+      text-decoration: underline;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 10px auto 0;
+    }
+    ul.c-flex {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    ul.c-flex li {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      user-select: none;
+    }
+    ul.c-flex li span {
+      margin-top: 8px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #00796b;
+      user-select: text;
+    }
+    a {
+      outline-offset: 2px;
+      outline-color: #00796b;
+    }
+    a:focus-visible {
+      outline-style: solid;
+      outline-width: 2px;
+    }
+
+    /* 小さめ画面用に調整 */
+    @media (max-width: 360px) {
+      header {
+        font-size: 1.2rem;
+        padding: 15px 12px;
+      }
+      section {
+        padding: 25px 15px;
+      }
+      .steps .card h3 {
+        font-size: 1.1rem;
+      }
+      .list .item {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="logo">
-        <h3>オンライン服薬指導</h3>
-      </div>
+      オンライン服薬指導
     </header>
 
-    <section class="hero">
-      <div class="hero-left">
-        <div class="badges">
-          <div class="badge">✅ スマホひとつで完結！</div>
-          <div class="badge">✅ 薬局行かず、待ち時間ゼロ！</div>
-          <div class="badge">✅ どこでもビデオ通話相談！</div>
-          <div class="badge">✅ かんたん３ステップ！</div>
-          <br>スマホで自由が手に
-          <br><br>
-          <img class="lg_none" src="https://www.kurumi-ph.jp/img/base/icons/icon_logo_sp.svg" alt="Kurumi pharmacy" width="130" height="33.705">
-        </div>
+    <section class="hero" role="region" aria-label="サービスの特徴">
+      <div class="badges">
+        <div class="badge">✅ スマホひとつで完結！</div>
+        <div class="badge">✅ 薬局行かず、待ち時間ゼロ！</div>
+        <div class="badge">✅ どこでもビデオ通話相談！</div>
+        <div class="badge">✅ かんたん３ステップ！</div>
+        <p>スマホで自由が手に</p>
+        <img src="https://www.kurumi-ph.jp/img/base/icons/icon_logo_sp.svg" alt="Kurumi pharmacy" width="130" height="34" />
       </div>
-    </section> <!-- /.hero -->
+    </section>
 
-    <section class="steps" aria-label="利用の3ステップ">
-      <article class="card" id="step1">
+    <section class="steps" id="step1" role="region" aria-label="Step 1 処方箋受付">
+      <article class="card">
         <h3>Step.1 処方箋受付</h3>
         <div class="list">
-          アプリで
-          <div class="item"><div class="dot" aria-hidden></div><div>✅ 処方箋を撮影してアップロード</div></div>
-          <div class="item"><div class="dot" aria-hidden></div><div><span class="required">✅ 原本を薬局へ郵送（必須）</span></div></div>
-          <div class="item"><div class="dot" aria-hidden></div><div>✅ 予約＆保険証登録</div></div>
-          <br>
-          ※提出期限など、注意事項は <a href="">こちら</a>
+          <p>アプリで</p>
+          <div class="item"><div class="dot"></div><div>✅ 処方箋を撮影してアップロード</div></div>
+          <div class="item"><div class="dot"></div><div>✅ 原本を薬局へ郵送（必須）</div></div>
+          <div class="item"><div class="dot"></div><div>✅ 予約＆保険証登録</div></div>
+          <p>※提出期限など、注意事項は <a href="#">こちら</a></p>
         </div>
       </article>
+    </section>
 
-      <article class="card" id="step2">
+    <section class="steps" id="step2" role="region" aria-label="Step 2 ビデオ通話">
+      <article class="card">
         <h3>Step.2 ビデオ通話</h3>
         <div class="list">
-          <div class="item"><div class="dot" aria-hidden></div><div>薬剤師とスマホでビデオ通話</div></div>
-          <br>
-          <div class="item"><div class="dot" aria-hidden></div><div class="muted">費用は</div></div>
-          <div class="item"><div class="dot" aria-hidden></div><div class="muted">薬代（保険適用）</div></div>
-          <div class="item"><div class="dot" aria-hidden></div><div class="muted">＋</div></div>
-          <div class="item"><div class="dot" aria-hidden></div><div class="muted">少額の利用料・送料</div></div>
-          <div class="item"><div the="dot" aria-hidden></div><div class="muted">お支払いはクレジットカードで！</div></div>
+          <div class="item"><div class="dot"></div><div>薬剤師とスマホでビデオ通話</div></div>
+          <br />
+          <div class="item"><div class="dot"></div><div class="muted">費用は</div></div>
+          <div class="item"><div class="dot"></div><div class="muted">薬代（保険適用）</div></div>
+          <div class="item"><div class="dot"></div><div class="muted">＋</div></div>
+          <div class="item"><div class="dot"></div><div class="muted">少額の利用料・送料</div></div>
+          <div class="item"><div class="dot"></div><div class="muted">お支払いはクレジットカードで！</div></div>
         </div>
       </article>
+    </section>
 
-      <article class="card" id="step3">
+    <section class="steps" id="step3" role="region" aria-label="Step 3 お薬お届け">
+      <article class="card">
         <h3>Step.3 お薬お届け</h3>
         <div class="list">
-          <div class="item"><div class="dot" aria-hidden></div><div>お薬は最短翌日</div></div>
-          <div class="item"><div class="dot" aria-hidden></div><div class="muted">自宅や職場にお届け！</div></div>
-          <br>
-          <div class="center"></div>
-          <img src="日本.png" width="204.8" height="156.4" alt="日本地図など">
+          <div class="item"><div class="dot"></div><div>お薬は最短翌日</div></div>
+          <div class="item"><div class="dot"></div><div class="muted">自宅や職場にお届け！</div></div>
+          <div class="center">
+            <img src="日本.png" alt="日本地図" width="204" height="156" />
+          </div>
         </div>
       </article>
+    </section>
 
-      <article class="card" id="app-register">
+    <section class="steps" id="app-register" role="region" aria-label="アプリの登録">
+      <article class="card">
         <h3>アプリの登録</h3>
-        <div class="center"></div>
-        <img src="eお薬手帳.png" width="217" height="41" alt="eお薬手帳ロゴ">
-        <br>診察後、すぐに利用開始！
-        <br>
-        <ul class="c-flex u-mt--0">
-          <li class="u-mt--1">
-            <a href="https://apps.apple.com/jp/app/id1673612580" target="_blank">
-              <img src="https://cdn.shopify.com/s/files/1/0509/0757/8575/files/app-line-badge-app-store.png?v=1649732221" alt="App Store" loading="lazy" width="118" height="38">
+        <div class="center">
+          <img src="eお薬手帳.png" width="217" height="41" alt="eお薬手帳ロゴ" />
+        </div>
+        <p>診察後、すぐに利用開始！</p>
+        <ul class="c-flex">
+          <li>
+            <a href="https://apps.apple.com/jp/app/id1673612580" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn.shopify.com/s/files/1/0509/0757/8575/files/app-line-badge-app-store.png?v=1649732221" alt="App Store" width="118" height="38" />
             </a>
-            <span class="u-font-size--xl u-font-weight--bold">iPhoneの方はこちら</span>
+            <span>iPhoneの方はこちら</span>
           </li>
-          <li class="u-mt--1">
-            <a href="https://play.google.com/store/apps/details?id=jp.co.nichiyaku.medicinebook" target="_blank">
-              <img src="https://cdn.shopify.com/s/files/1/0509/0757/8575/files/app-line-badge-google-play.png?v=1649732221" alt="Google Play" loading="lazy" width="118" height="35">
+          <li>
+            <a href="https://play.google.com/store/apps/details?id=jp.co.nichiyaku.medicinebook" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn.shopify.com/s/files/1/0509/0757/8575/files/app-line-badge-google-play.png?v=1649732221" alt="Google Play" width="118" height="35" />
             </a>
-            <span class="u-font-size--xl u-font-weight--bold">Androidの方はこちら</span>
+            <span>Androidの方はこちら</span>
           </li>
         </ul>
       </article>
-    </section> <!-- /.steps -->
+    </section>
 
-    <footer>
-      <div style="display:flex; gap:12px; align-items:center;">
-        <!-- 必要な要素があればここに -->
-      </div>
-      <div style="font-weight:700;">
-        登録無料！<br><br>
-        アプリの使い方は <a href="https://teachme.jp/30325/manuals/26970727">こちら</a>
-      </div>
+    <footer role="contentinfo">
+      <p>登録無料！</p>
+      <p>アプリの使い方は <a href="https://teachme.jp/30325/manuals/26970727" target="_blank" rel="noopener noreferrer">こちら</a></p>
     </footer>
-
-  </div> <!-- /.wrap -->
+  </div>
 </body>
 </html>
